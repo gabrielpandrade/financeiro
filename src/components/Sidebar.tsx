@@ -1,18 +1,16 @@
 "use client";
 
-import { toggleSideBarCollpased } from "@/lib/features/global/globalSlice";
+import { toggleSidebar } from "@/lib/features/ui/uiSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import {
-  Archive,
-  CircleDollarSign,
-  Clipboard,
+  ArrowUpDown,
+  CreditCard,
+  Files,
   Layout,
   LucideIcon,
   Menu,
-  SlidersHorizontal,
-  User,
+  Tag,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -63,11 +61,11 @@ const Sidebar = () => {
   const dispatch = useAppDispatch();
 
   const isSidebarCollapsed = useAppSelector(
-    (state) => state.global.isSideBarCollapsed
+    (state) => state.ui.isSidebarCollapsed
   );
 
   const handleToggleSidebar = () => {
-    dispatch(toggleSideBarCollpased());
+    dispatch(toggleSidebar());
   };
 
   const sidebarClassNames = `fixed flex flex-col ${
@@ -108,33 +106,27 @@ const Sidebar = () => {
           isCollapsed={isSidebarCollapsed}
         />
         <SidebarLink
-          href="/inventory"
-          icon={Archive}
-          label="Inventory"
+          href="/transactions"
+          icon={ArrowUpDown}
+          label="Transações"
           isCollapsed={isSidebarCollapsed}
         />
         <SidebarLink
-          href="/products"
-          icon={Clipboard}
-          label="Products"
+          href="/categories"
+          icon={Files}
+          label="Categorias"
           isCollapsed={isSidebarCollapsed}
         />
         <SidebarLink
-          href="/users"
-          icon={User}
-          label="Users"
+          href="/tags"
+          icon={Tag}
+          label="Etiquetas"
           isCollapsed={isSidebarCollapsed}
         />
         <SidebarLink
-          href="/settings"
-          icon={SlidersHorizontal}
-          label="Settings"
-          isCollapsed={isSidebarCollapsed}
-        />
-        <SidebarLink
-          href="/expenses"
-          icon={CircleDollarSign}
-          label="Expenses"
+          href="/methods"
+          icon={CreditCard}
+          label="Métodos de Pagamento"
           isCollapsed={isSidebarCollapsed}
         />
       </div>

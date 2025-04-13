@@ -1,22 +1,21 @@
 "use client";
 
-import { toggleDarkMode, toggleSideBarCollpased } from "@/lib/features/global/globalSlice";
+import { toggleDarkMode, toggleSidebar } from "@/lib/features/ui/uiSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { Bell, Menu, Moon, Search, Settings, Sun } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
     const dispatch = useAppDispatch();
 
-    const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
+    const isDarkMode = useAppSelector((state) => state.ui.isDarkMode);
 
     const handleToggleDarkMode = () => {
         dispatch(toggleDarkMode());
     }
 
     const handleToggleSidebar = () => {
-        dispatch(toggleSideBarCollpased());
+        dispatch(toggleSidebar());
     }
 
     return (
@@ -63,13 +62,7 @@ const Navbar = () => {
           </div>
           <hr className="w-0 h-7 border border-solid border-l border-gray-300 mx-3" />
           <div className="flex items-center gap-3 cursor-pointer">
-            <Image
-              src=""
-              alt="Profile"
-              width={50}
-              height={50}
-              className="rounded-full h-full object-cover"
-            />
+            <div>Profile</div>
             <span className="font-semibold">Ed Roh</span>
           </div>
         </div>
