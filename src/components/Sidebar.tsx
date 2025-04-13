@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import {
   ArrowUpDown,
   CreditCard,
-  Files,
+  Folder,
   Layout,
   LucideIcon,
   Menu,
@@ -86,7 +86,7 @@ const Sidebar = () => {
             isSidebarCollapsed ? "hidden" : "block"
           } font-extrabold text-2xl`}
         >
-          EDSTOCK
+          APF
         </h1>
 
         <button
@@ -113,7 +113,7 @@ const Sidebar = () => {
         />
         <SidebarLink
           href="/categories"
-          icon={Files}
+          icon={Folder}
           label="Categorias"
           isCollapsed={isSidebarCollapsed}
         />
@@ -133,7 +133,7 @@ const Sidebar = () => {
 
       {/* FOOTER */}
       <div className={`${isSidebarCollapsed ? "hidden" : "block"} mb-10`}>
-        <p className="text-center text-xs text-gray-500">&copy; 2024 Edstock</p>
+        <p className="text-center text-xs text-gray-500">&copy; 2025 APF</p>
       </div>
     </div>
   );

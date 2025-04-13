@@ -19,6 +19,7 @@ erDiagram
     categories {
         uuid id pk
         text name
+        text type
         user_id uuid fk
     }
 
@@ -31,6 +32,7 @@ erDiagram
 
     transactions {
         uuid id pk
+        text type
         decimal amount
         timestamp payment_date
         timestamp due_date
