@@ -1,17 +1,29 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { uiReducer } from "./features/ui/uiSlice";
-import { persistReducer } from "redux-persist";
-import { persistStore } from "redux-persist";
+import { uiReducer } from "@/lib/features/ui/uiSlice";
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  persistReducer,
+  persistStore,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { api } from "@/lib/features/api/api";
+import { authReducer } from "@/lib/features/auth/authSlice";
 
 const rootReducer = combineReducers({
   ui: uiReducer,
+  auth: authReducer,
+  [api.reducerPath]: api.reducer,
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["ui"],
+  whitelist: ["ui", "auth", "api"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -20,8 +32,10 @@ export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(api.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
