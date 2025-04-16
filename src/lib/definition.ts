@@ -8,6 +8,7 @@ export type Tag = {
 export type Category = {
   id: string;
   name: string;
+  description: string;
   owner_id: string;
 };
 
@@ -22,6 +23,7 @@ export type Transaction = {
   id: string;
   type: string;
   status: string;
+  description: string;
   amount: number;
   payment_date: Date;
   due_date: Date;
@@ -40,6 +42,7 @@ export type NewTag = {
 
 export type NewCategory = {
   name: string;
+  description: string;
   owner_id: string;
 };
 
@@ -51,6 +54,8 @@ export type NewPaymentMethod = {
 
 export type NewTransaction = {
   type: string;
+  status: string;
+  description: string;
   amount: number;
   payment_date: Date;
   due_date: Date;

@@ -33,6 +33,7 @@ erDiagram
         uuid id pk
         text type
         text status
+        text description
         decimal amount
         timestamp payment_date
         timestamp due_date
