@@ -17,3 +17,14 @@ body,
   @apply bg-gray-500;
   @apply text-gray-900;
 }
+
+.MuiSvgIcon-root,
+.MuiTablePagination-root {
+  @apply !text-gray-700;
+}
+
+.MuiDataGrid-columnHeader,
+.MuiDataGrid-filler,
+.MuiDataGrid-footerContainer {
+  @apply bg-gray-50;
+}
