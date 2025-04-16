@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import DashboardWrapper from "@/components/DashboardWrapper";
+import DashboardWrapper from "@/components/redux/DashboardWrapper";
 
 const inter = Inter({
   subsets: ["latin"],

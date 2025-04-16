@@ -1,8 +1,23 @@
 import { NextResponse } from "next/server";
 
 const mockTransactions = [
-  { id: "1", title: "Salário", amount: 3000 },
-  { id: "2", title: "Mercado", amount: -200 },
+  {
+    id: "a81bc81b-dead-4e5d-abff-90865d1e13b1",
+    type: "Receita",
+    status: "Paga",
+    amount: 3000,
+    payment_date: new Date(2025, 0, 20),
+    due_date: new Date(2025, 0, 20),
+    created_at: new Date(2025, 0, 20),
+    created_by: "1",
+    category: {
+      name: "Alimentação",
+    },
+    payment_method: {
+      name: "PIX",
+    },
+    tags: ["tag1", "tag2"],
+  },
 ];
 
 export async function GET() {
