@@ -1,7 +1,7 @@
 import { Category } from "@/lib/definition";
 import { NextResponse } from "next/server";
 
-const mockCategories: Category[] = [
+export const mockCategories: Category[] = [
   {
     id: "a81bc81b-dead-4e5d-abff-90865d1e13b1",
     name: "Alimentação",

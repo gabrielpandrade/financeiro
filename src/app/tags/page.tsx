@@ -1,5 +1,11 @@
+"use client";
+
+import { useGetCategoriesQuery } from "@/lib/features/api/api";
+
 const Tags = () => {
-  return <div>Tags</div>;
+  const { data: categories, isLoading } = useGetCategoriesQuery();
+
+  return console.log(categories);
 };
 
 export default Tags;

@@ -1,12 +1,12 @@
 "use client";
 
-import Header from "@/components/ui/Header";
-import { NewTransaction } from "@/lib/definition";
+import Header from "@/components/ui/header";
+import { TransactionDTO } from "@/lib/definition";
 import {
   useCreateTransactionMutation,
   useGetTransactionsQuery,
 } from "@/lib/features/api/api";
-import { useAppSelector } from "@/lib/hooks";
+import { useAppSelector } from "@/lib/redux/hooks";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { Plus } from "lucide-react";
 import { useState } from "react";
@@ -87,7 +87,7 @@ const Transactions = () => {
   const isDarkMode = useAppSelector((state) => state.ui.isDarkMode);
 
   const handleClick = async () => {
-    const newTransaction: NewTransaction = {
+    const newTransaction: TransactionDTO = {
       type: "Receita",
       description: "Teste",
       status: "Paga",
@@ -99,7 +99,7 @@ const Transactions = () => {
       category: {
         id: "1",
         name: "Alimentação",
-        desription: "Teste",
+        description: "Teste",
         owner_id: "1",
       },
       payment_method: {

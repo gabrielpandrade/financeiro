@@ -12,11 +12,9 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { api } from "@/lib/features/api/api";
-import { authReducer } from "@/lib/features/auth/authSlice";
 
 const rootReducer = combineReducers({
   ui: uiReducer,
-  auth: authReducer,
   [api.reducerPath]: api.reducer,
 });
 

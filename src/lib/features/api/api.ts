@@ -1,10 +1,10 @@
 import { axiosBaseQuery } from "@/lib/axiosBaseQuery";
 import {
   Category,
-  NewCategory,
-  NewPaymentMethod,
+  CategoryDTO,
+  PaymentMethodDTO,
   NewTag,
-  NewTransaction,
+  TransactionDTO,
   PaymentMethod,
   Tag,
   Transaction,
@@ -41,8 +41,8 @@ export const api = createApi({
       keepUnusedDataFor: Infinity,
     }),
 
-    //POSTS
-    createCategory: build.mutation<Category, NewCategory>({
+    //POST
+    createCategory: build.mutation<Category, CategoryDTO>({
       query: (newCategory) => ({
         url: "/categories",
         method: "POST",
@@ -50,7 +50,7 @@ export const api = createApi({
       }),
       invalidatesTags: ["Categories"],
     }),
-    createMethod: build.mutation<PaymentMethod, NewPaymentMethod>({
+    createMethod: build.mutation<PaymentMethod, PaymentMethodDTO>({
       query: (newMethod) => ({
         url: "/methods",
         method: "POST",
@@ -66,13 +66,34 @@ export const api = createApi({
       }),
       invalidatesTags: ["Tags"],
     }),
-    createTransaction: build.mutation<Transaction, NewTransaction>({
+    createTransaction: build.mutation<Transaction, TransactionDTO>({
       query: (newTransaction) => ({
         url: "/transactions",
         method: "POST",
         data: newTransaction,
       }),
       invalidatesTags: ["Transactions"],
+    }),
+
+    //PUT
+    updateCategory: build.mutation<Category, { id: string; data: CategoryDTO }>(
+      {
+        query: ({ id, data }) => ({
+          url: `/categories/${id}`,
+          method: "PUT",
+          data,
+        }),
+        invalidatesTags: ["Categories"],
+      }
+    ),
+
+    //DELETE
+    deleteCategory: build.mutation<void, string>({
+      query: (id) => ({
+        url: `/categories/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Categories"],
     }),
   }),
 });
@@ -86,4 +107,6 @@ export const {
   useCreateMethodMutation,
   useCreateTagMutation,
   useCreateTransactionMutation,
+  useUpdateCategoryMutation,
+  useDeleteCategoryMutation,
 } = api;

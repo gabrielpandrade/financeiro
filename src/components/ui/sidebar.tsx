@@ -1,7 +1,7 @@
 "use client";
 
 import { toggleSidebar } from "@/lib/features/ui/uiSlice";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 import {
   ArrowUpDown,
   CreditCard,

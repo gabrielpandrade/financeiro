@@ -1,6 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { BaseQueryFn } from "@reduxjs/toolkit/query";
-import { RootState } from "@/lib/store";
 
 export const axiosBaseQuery =
   (
@@ -15,21 +14,14 @@ export const axiosBaseQuery =
     unknown,
     unknown
   > =>
-  async ({ url, method, data, params }, { getState }) => {
+  async ({ url, method, data, params }) => {
     try {
-      const state = getState() as RootState;
-      const token = state.auth.accessToken;
 
       const result = await axios({
         url: baseUrl + url,
         method,
         data,
         params,
-        headers: token
-          ? {
-              Authorization: `Bearer ${token}`,
-            }
-          : {},
       });
       return { data: result.data };
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

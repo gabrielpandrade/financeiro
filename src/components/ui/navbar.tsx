@@ -1,7 +1,7 @@
 "use client";
 
 import { toggleDarkMode, toggleSidebar } from "@/lib/features/ui/uiSlice";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 import { Menu, Moon,  Settings, Sun } from "lucide-react";
 import Link from "next/link";
 

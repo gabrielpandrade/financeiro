@@ -37,22 +37,19 @@ export type Transaction = {
 export type NewTag = {
   name: string;
   description: string;
-  owner_id: string;
 };
 
-export type NewCategory = {
+export type CategoryDTO = {
   name: string;
   description: string;
-  owner_id: string;
 };
 
-export type NewPaymentMethod = {
+export type PaymentMethodDTO = {
   name: string;
   due_day: number;
-  owner_id: string;
 };
 
-export type NewTransaction = {
+export type TransactionDTO = {
   type: string;
   status: string;
   description: string;
@@ -60,7 +57,6 @@ export type NewTransaction = {
   payment_date: Date;
   due_date: Date;
   created_at: Date;
-  created_by: string;
   category: Category;
   payment_method: PaymentMethod;
   tags: Tag[];
