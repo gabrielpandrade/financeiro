@@ -3,7 +3,7 @@ import {
   Category,
   CategoryDTO,
   PaymentMethodDTO,
-  NewTag,
+  TagDTO,
   TransactionDTO,
   PaymentMethod,
   Tag,
@@ -58,7 +58,7 @@ export const api = createApi({
       }),
       invalidatesTags: ["PaymentMethods"],
     }),
-    createTag: build.mutation<Tag, NewTag>({
+    createTag: build.mutation<Tag, TagDTO>({
       query: (newTag) => ({
         url: "/tags",
         method: "POST",
@@ -86,6 +86,36 @@ export const api = createApi({
         invalidatesTags: ["Categories"],
       }
     ),
+    updateMethod: build.mutation<
+      PaymentMethod,
+      { id: string; data: PaymentMethodDTO }
+    >({
+      query: ({ id, data }) => ({
+        url: `/methods/${id}`,
+        method: "PUT",
+        data,
+      }),
+      invalidatesTags: ["PaymentMethods"],
+    }),
+    updateTag: build.mutation<Tag, { id: string; data: TagDTO }>({
+      query: ({ id, data }) => ({
+        url: `/tags/${id}`,
+        method: "PUT",
+        data,
+      }),
+      invalidatesTags: ["Tags"],
+    }),
+    updateTransaction: build.mutation<
+      Transaction,
+      { id: string; data: TransactionDTO }
+    >({
+      query: ({ id, data }) => ({
+        url: `/transactions/${id}`,
+        method: "PUT",
+        data,
+      }),
+      invalidatesTags: ["Transactions"],
+    }),
 
     //DELETE
     deleteCategory: build.mutation<void, string>({
@@ -95,6 +125,28 @@ export const api = createApi({
       }),
       invalidatesTags: ["Categories"],
     }),
+    deleteMethod: build.mutation<void, string>({
+      query: (id) => ({
+        url: `/methods/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["PaymentMethods"],
+    }),
+    deleteTag: build.mutation<void, string>({
+      query: (id) => ({
+        url: `/tags/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Tags"],
+    }),
+    deleteTransaction: build.mutation<void, string>({
+      query: (id) => ({
+        url: `/transactions/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Transactions"],
+    }),
+
   }),
 });
 
@@ -108,5 +160,11 @@ export const {
   useCreateTagMutation,
   useCreateTransactionMutation,
   useUpdateCategoryMutation,
+  useUpdateMethodMutation,
+  useUpdateTagMutation,
+  useUpdateTransactionMutation,
   useDeleteCategoryMutation,
+  useDeleteMethodMutation,
+  useDeleteTagMutation,
+  useDeleteTransactionMutation,
 } = api;

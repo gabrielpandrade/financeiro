@@ -34,7 +34,7 @@ export type Transaction = {
   tags: Tag[];
 };
 
-export type NewTag = {
+export type TagDTO = {
   name: string;
   description: string;
 };
