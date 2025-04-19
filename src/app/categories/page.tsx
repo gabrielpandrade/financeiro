@@ -1,8 +1,7 @@
 import Header from "@/components/ui/header";
-import CategoryTable from "./category-table";
+import CategoryTable from "@/components/ui/categories/categories-table";
 
 const Categories = () => {
-
   return (
     <>
       <div className="flex flex-col">

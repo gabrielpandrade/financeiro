@@ -10,9 +10,9 @@ import { Box, Button, Modal } from "@mui/material";
 import { DataGrid, GridActionsCellItem, GridColDef } from "@mui/x-data-grid";
 import { CirclePlus, Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
-import EditCategoryForm from "./edit-category-form";
+import EditCategoryForm from "@/components/ui/categories/edit-category-form";
 import { Category, CategoryDTO } from "@/lib/definition";
-import NewCategoryForm from "./new-category-form";
+import NewCategoryForm from "@/components/ui/categories/new-category-form";
 
 const CategoryTable = () => {
   const columns: GridColDef[] = [
