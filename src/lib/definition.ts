@@ -57,7 +57,16 @@ export type TransactionDTO = {
   payment_date: Date;
   due_date: Date;
   created_at: Date;
-  category: Category;
-  payment_method: PaymentMethod;
-  tags: Tag[];
+  category: {
+    id: string;
+    name: string;
+  };
+  payment_method: {
+    id: string;
+    name: string;
+  };
+  tags: {
+    id: string;
+    name: string;
+  }[];
 };

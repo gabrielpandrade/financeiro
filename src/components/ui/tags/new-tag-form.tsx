@@ -2,7 +2,7 @@ import { TagDTO } from "@/lib/definition";
 import { useState } from "react";
 
 type NewTagFormProps = {
-  onSave: (Tag: TagDTO) => void;
+  onSave: (tag: TagDTO) => void;
 };
 
 const NewTagForm = ({ onSave }: NewTagFormProps) => {

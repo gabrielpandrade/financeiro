@@ -14,7 +14,7 @@ import EditTagForm from "@/components/ui/tags/edit-tag-form";
 import { Tag, TagDTO } from "@/lib/definition";
 import NewTagForm from "@/components/ui/tags/new-tag-form";
 
-const TagTable = () => {
+const TagsTable = () => {
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 90 },
     {
@@ -67,7 +67,7 @@ const TagTable = () => {
   const [newOpen, setNewOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
-  const [TagHandle, setTagHandle] = useState<Tag | null>(null);
+  const [tagHandle, setTagHandle] = useState<Tag | null>(null);
 
   const { data: Tags, isLoading } = useGetTagsQuery();
   const [deleteTag] = useDeleteTagMutation();
@@ -94,19 +94,13 @@ const TagTable = () => {
     setNewOpen(false);
   };
 
-  const handleEdit = ({
-    id,
-    editedTag,
-  }: {
-    id: string;
-    editedTag: TagDTO;
-  }) => {
+  const handleEdit = ({ id, editedTag }: { id: string; editedTag: TagDTO }) => {
     updateTag({ id, data: editedTag });
     setEditOpen(false);
   };
 
   const handleDelete = () => {
-    if (TagHandle) deleteTag(TagHandle.id);
+    if (tagHandle) deleteTag(tagHandle.id);
     setDeleteOpen(false);
   };
 
@@ -122,9 +116,7 @@ const TagTable = () => {
         aria-describedby="modal-Tag-edition-modal"
       >
         <Box>
-          {TagHandle && (
-            <EditTagForm Tag={TagHandle} onSave={handleEdit} />
-          )}
+          {tagHandle && <EditTagForm Tag={tagHandle} onSave={handleEdit} />}
         </Box>
       </Modal>
 
@@ -154,7 +146,7 @@ const TagTable = () => {
         <Box>
           <div className="mx-auto text-center text-lg">
             <span>Tem certeza que quer deletar </span>
-            <span className="font-bold">{TagHandle?.name} ?</span>
+            <span className="font-bold">{tagHandle?.name} ?</span>
           </div>
           <div className="flex justify-center py-4">
             <Button
@@ -209,4 +201,4 @@ const TagTable = () => {
   );
 };
 
-export default TagTable;
+export default TagsTable;

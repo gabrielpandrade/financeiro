@@ -1,7 +1,7 @@
 import Header from "@/components/ui/header";
-import TagTable from "@/components/ui/tags/tags-table";
+import TagsTable from "@/components/ui/tags/tags-table";
 
-const tags = () => {
+const Tags = () => {
   return (
     <>
       <div className="flex flex-col">
@@ -10,11 +10,11 @@ const tags = () => {
         </div>
         <div className="flex flex-col md:flex-row">
           <div className="bg-gray-50 flex-1"></div>
-          <TagTable />
+          <TagsTable />
         </div>
       </div>
     </>
   );
 };
 
-export default tags;
+export default Tags;

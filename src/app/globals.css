@@ -32,3 +32,7 @@ body,
 .MuiBox-root {
   @apply !text-gray-700 !bg-gray-50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] border-2 border-white shadow-2xl p-4 rounded-lg;
 }
+
+select {
+  @apply !text-gray-700 !bg-gray-50;
+}

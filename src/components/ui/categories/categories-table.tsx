@@ -14,7 +14,7 @@ import EditCategoryForm from "@/components/ui/categories/edit-category-form";
 import { Category, CategoryDTO } from "@/lib/definition";
 import NewCategoryForm from "@/components/ui/categories/new-category-form";
 
-const CategoryTable = () => {
+const CategoriesTable = () => {
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 90 },
     {
@@ -209,4 +209,4 @@ const CategoryTable = () => {
   );
 };
 
-export default CategoryTable;
+export default CategoriesTable;

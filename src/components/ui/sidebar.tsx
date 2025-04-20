@@ -33,7 +33,7 @@ const SidebarLink = ({
     pathname === href || (pathname === "/" && href === "/dashboard");
 
   return (
-    <Link href={href}>
+    <Link prefetch={true} href={href}>
       <div
         className={`cursor-pointer flex items-center ${
           isCollapsed ? "justify-center py-4" : "justify-start px-8 py-4"

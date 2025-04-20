@@ -1,5 +1,5 @@
 import Header from "@/components/ui/header";
-import CategoryTable from "@/components/ui/categories/categories-table";
+import CategoriesTable from "@/components/ui/categories/categories-table";
 
 const Categories = () => {
   return (
@@ -10,7 +10,7 @@ const Categories = () => {
         </div>
         <div className="flex flex-col md:flex-row">
           <div className="bg-gray-50 flex-1"></div>
-          <CategoryTable />
+          <CategoriesTable />
         </div>
       </div>
     </>
